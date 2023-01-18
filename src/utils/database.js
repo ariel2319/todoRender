@@ -13,9 +13,9 @@ const db = new Sequelize({
    port: process.env.DB_PORT, // ! puerto de la DB del psql
    password: process.env.DB_PASSWORD, //! pass de la DB del psql
    dialect: 'postgres', //! tipo DB que estamos usando => postgres 
-   logging: false
+   logging: false,
+   dialectOptions: { ssl: { require: true, rejectUnauthorized: false } }
 });
-
 // ! exporto la instancia de 'db' para que la pueda leer el resto de la app
 module.exports = db;
 
